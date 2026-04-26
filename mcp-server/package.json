@@ -1,0 +1,21 @@
+{
+  "name": "saino-mcp-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cloudflare Worker MCP server for Saino Finance — exposes financial movement, budget, and reporting tools to Claude.",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "cf-typegen": "wrangler types"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "typescript": "^5.5.2",
+    "wrangler": "^4.85.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "agents": "^0.11.5",
+    "zod": "^4.3.6"
+  }
+}

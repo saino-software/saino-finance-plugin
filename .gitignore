@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Cloudflare Workers
+.wrangler/
+.dev.vars
+wrangler.local.jsonc
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Terraform
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraform.tfstate.lock.info
+
+# One-time data migration scripts (output is gitignored, source script lives elsewhere)
+scripts/data_migration/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+dist/
+build/
+
+# TypeScript
+*.tsbuildinfo
+worker-configuration.d.ts

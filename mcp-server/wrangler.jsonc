@@ -1,0 +1,34 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "saino-mcp",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-04-25",
+	"compatibility_flags": ["nodejs_compat"],
+	"observability": { "enabled": true },
+	"upload_source_maps": true,
+
+	"routes": [
+		{ "pattern": "saino-mcp.saino.software", "custom_domain": true }
+	],
+
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "saino-finance",
+			// database_id is provided by Terraform output `d1_database_id`.
+			// Run `terraform output -raw d1_database_id` and paste here, or use
+			// `wrangler deploy --var d1_database_id:$(terraform -chdir=../infra output -raw d1_database_id)`.
+			"database_id": "8a6e711b-e911-4793-97f2-ab1bdb476c85"
+		}
+	],
+
+	"durable_objects": {
+		"bindings": [
+			{ "name": "MCP", "class_name": "SainoMCP" }
+		]
+	},
+
+	"migrations": [
+		{ "tag": "v1", "new_sqlite_classes": ["SainoMCP"] }
+	]
+}
