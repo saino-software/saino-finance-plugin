@@ -1,0 +1,14 @@
+{
+  "name": "saino-finance",
+  "owner": {
+    "name": "Saino Software",
+    "url": "https://github.com/saino-software"
+  },
+  "plugins": [
+    {
+      "name": "saino-finance",
+      "source": "./plugin",
+      "description": "Conversational personal finance — record expenses, manage budgets, reconcile statements, track installments. Backed by a Cloudflare Workers MCP server."
+    }
+  ]
+}
