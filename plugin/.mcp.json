@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "saino-finance": {
+      "type": "http",
+      "url": "https://saino-mcp.saino.software/mcp",
+      "headers": {
+        "CF-Access-Client-Id": "${SAINO_CF_ACCESS_CLIENT_ID}",
+        "CF-Access-Client-Secret": "${SAINO_CF_ACCESS_CLIENT_SECRET}"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "saino-finance",
+  "version": "0.1.0",
+  "description": "Conversational personal finance management — record expenses, track budgets, and analyze spending by talking to Claude. Backed by a Cloudflare Workers MCP server.",
+  "author": {
+    "name": "Saino Software",
+    "url": "https://github.com/saino-software"
+  },
+  "homepage": "https://github.com/saino-software/saino-finance-plugin",
+  "repository": "https://github.com/saino-software/saino-finance-plugin",
+  "license": "MIT",
+  "keywords": ["finance", "budget", "expenses", "personal-finance", "mcp"]
+}
