@@ -62,7 +62,7 @@ For each new EXECUTED, suggest matches against active PLANNEDs:
 - Match by category + amount + date proximity
 - Confirm with user before linking
 
-(MCP doesn't yet have `link_to_planned` tool — workaround: delete + recreate with `parent_movement_id` set, or wait.)
+Then call `link_to_planned({ executedMovementId, plannedMovementId })` — sets `parent_movement_id` on the executed and marks the planned as `FULFILLED` in one step.
 
 ## Phase 8 — Summary
 

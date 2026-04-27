@@ -61,9 +61,9 @@ If source has `applies_gmf=true`, bank charges 0.4%. MCP does NOT auto-add. Regi
 
 ## Edit / delete
 
-`delete_movement({ movementId })` — auto-deletes the linked pair. Call once with either side's ID.
+`delete_movement({ movementId })` — auto-deletes the linked pair (handles the cyclic FK internally). Call once with either side's ID.
 
-No `edit_movement` exists yet. To change a transfer: delete + recreate.
+For edits: `update_movement` exists but only touches one side. For amount or account changes on a transfer, **delete + recreate** is still safer (keeps both sides consistent). For metadata-only edits (title, notes, date), call `update_movement` once per side.
 
 ## Quick reference
 

@@ -42,7 +42,7 @@ The original purchase is a separate EXECUTED movement that hit the card balance 
 | VOIDED | Cancelled. Stops generating. Existing PLANNEDs in current period stay |
 | FULFILLED | (Installments) all cuotas paid off |
 
-Cancel via state change (no `edit_movement` yet — workaround: delete, but loses history).
+Cancel via `update_movement_state({ movementId, state: "VOIDED" })`. Don't delete — voiding preserves history and any FULFILLED descendants.
 
 ## Installment math (calculated, not stored)
 

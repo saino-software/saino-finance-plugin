@@ -65,7 +65,7 @@ A PLANNED movement is intent (future expected expense), not history. Linked to b
 | "Cuánto me queda hoy" | `budget_status` → `dailyAllowance` |
 | "Cuánto en comida" | `budget_status.byCategory`, or `spending_by_category` for detail |
 | "Qué tengo planeado" | `list_movements` with `state=PLANNED`, date range |
-| "Cancelar Netflix" | Find recurring TEMPLATE via `list_movements state=TEMPLATE`. No `edit` tool yet — workaround: delete it (loses history) |
+| "Cancelar Netflix" | Find recurring TEMPLATE via `list_movements state=TEMPLATE`, then `update_movement_state({ movementId, state: "VOIDED" })` to stop generating PLANNEDs without losing history |
 
 ## Anti-patterns
 
