@@ -1,0 +1,16 @@
+UPDATE movements SET parent_movement_id = 200009 WHERE id = 9295;
+UPDATE movements SET parent_movement_id = 200001 WHERE id = 9300;
+UPDATE movements SET parent_movement_id = 200030 WHERE id = 9301;
+UPDATE movements SET parent_movement_id = 200010 WHERE id = 9306;
+UPDATE movements SET parent_movement_id = 200038 WHERE id = 9317;
+UPDATE movements SET parent_movement_id = 200067 WHERE id = 9325;
+UPDATE movements SET parent_movement_id = 200035 WHERE id = 9326;
+UPDATE movements SET parent_movement_id = 200036 WHERE id = 9357;
+UPDATE movements SET parent_movement_id = 200033 WHERE id = 9378;
+UPDATE movements SET parent_movement_id = 200061 WHERE id = 9399;
+UPDATE movements SET parent_movement_id = 200117 WHERE id = 9410;
+UPDATE movements SET parent_movement_id = 200083 WHERE id = 9411;
+UPDATE movements SET parent_movement_id = 200082 WHERE id = 9443;
+UPDATE movements SET parent_movement_id = 200112 WHERE id = 9444;
+UPDATE movements SET parent_movement_id = 200121 WHERE id = 9454;
+UPDATE movements SET parent_movement_id = 200090 WHERE id = 9500;

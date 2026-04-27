@@ -1,0 +1,16 @@
+INSERT INTO account_types (id, name, group_name) VALUES (1, 'Uncategorized', 'ASSET');
+INSERT INTO account_types (id, name, group_name) VALUES (2, 'Other Assets', 'ASSET');
+INSERT INTO account_types (id, name, group_name) VALUES (3, 'Otros Pasivos', 'LIABILITY');
+INSERT INTO account_types (id, name, group_name) VALUES (4, 'Bank Account', 'ASSET');
+INSERT INTO account_types (id, name, group_name) VALUES (5, 'Cash', 'ASSET');
+INSERT INTO account_types (id, name, group_name) VALUES (6, 'Investments', 'ASSET');
+INSERT INTO account_types (id, name, group_name) VALUES (7, 'Receivable', 'ASSET');
+INSERT INTO account_types (id, name, group_name) VALUES (8, 'Property', 'ASSET');
+INSERT INTO account_types (id, name, group_name) VALUES (9, 'Credit Card', 'LIABILITY');
+INSERT INTO account_types (id, name, group_name) VALUES (10, 'Loan', 'LIABILITY');
+INSERT INTO account_types (id, name, group_name) VALUES (11, 'Payable', 'LIABILITY');
+INSERT INTO account_types (id, name, group_name) VALUES (12, 'Hipotecas', 'LIABILITY');
+INSERT INTO account_types (id, name, group_name) VALUES (13, 'Activos externos', 'ASSET');
+INSERT INTO account_types (id, name, group_name) VALUES (14, 'Pasivos Externos', 'LIABILITY');
+INSERT INTO account_types (id, name, group_name) VALUES (15, 'Digital Wallet', 'ASSET');
+INSERT INTO account_types (id, name, group_name) VALUES (16, 'CryptoMonedas', 'ASSET');
