@@ -1,6 +1,6 @@
 {
   "name": "saino-finance",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Conversational personal finance management — record expenses, track budgets, and analyze spending by talking to Claude. Backed by a Cloudflare Workers MCP server.",
   "author": {
     "name": "Saino Software",

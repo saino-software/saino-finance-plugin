@@ -44,6 +44,16 @@ The original purchase is a separate EXECUTED movement that hit the card balance 
 
 Cancel via `update_movement_state({ movementId, state: "VOIDED" })`. Don't delete — voiding preserves history and any FULFILLED descendants.
 
+## TEMPLATE management commands
+
+| Tool | Purpose |
+|---|---|
+| `create_template({ accountId, title, items, kind, recurrenceFrequency, recurrenceDay?, recurrenceCount?, recurrenceRate?, installmentAmount?, ... })` | Create a new subscription / installment / loan TEMPLATE. `kind` (EXPENSE/INCOME) sets total sign. |
+| `list_movements({ state: "TEMPLATE" })` | Inventory all active TEMPLATEs. |
+| `update_movement({ movementId, recurrenceFrequency?, recurrenceDay?, ... })` | Change frequency, day, count, rate, or installment amount. Pass `items` to replace entries. |
+| `apply_template({ templateMovementId, date, state?, budgetId? })` | Manually instantiate a TEMPLATE → PLANNED on a given date. |
+| `delete_movement({ movementId, detachChildren?, deleteChildren? })` | Delete TEMPLATE. If it has descendant PLANNEDs/EXECUTEDs (via `parent_movement_id`), pass `detachChildren=true` to orphan them safely (preferred) or `deleteChildren=true` to cascade. Default refuses. |
+
 ## Installment math (calculated, not stored)
 
 - `currentInstallment` = count of EXECUTED children with `parent_movement_id = template`

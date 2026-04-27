@@ -64,6 +64,10 @@ For details, see the `understanding-recurring` skill.
 | "cuánto gasté en comida" / "gastos por categoría" | `spending_by_category` (see `reporting-and-stats`) |
 | "lista mis cuentas" / "cuál es mi balance" | `list_accounts` |
 | "qué transacciones tengo en X" | `list_movements` |
+| "borra esta cuenta vieja" | `delete_account({ accountId, reassignToAccountId? })` — refuses if movements exist; pass reassign to migrate them (account_id is NOT NULL — there's no detach option) |
+| "crea un budget para X mes" / "cierra el mes" | `create_budget` / `close_budget` / `activate_budget` (see `managing-budgets`) |
+| "agrega esta nueva suscripción / cuota" | `create_template` (see `understanding-recurring`) |
+| "corrige el monto de este movement" | `update_movement` — pass `items` to also replace entries (avoids `total_amount`/entries drift) |
 
 ## Always
 

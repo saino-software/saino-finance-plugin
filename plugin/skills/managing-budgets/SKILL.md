@@ -17,11 +17,22 @@ A budget = period (month) + spending limit + planned items + alerts. Powers dail
 
 ## `budget_status` — most-used tool
 
-Returns `{ hasBudget, period, limit, spent, remaining, daysLeft, dailyAllowance, percentUsed, byCategory }`.
+Returns `{ hasBudget, budgetId, state, period, limit, spent, remaining, daysLeft, dailyAllowance, percentUsed, byCategory }`.
 
-Call whenever user asks "cómo voy", "cuánto puedo gastar".
+Call whenever user asks "cómo voy", "cuánto puedo gastar". Pass `budgetId` to query a specific (e.g., closed/historical) budget; omit to use the active OPEN budget covering today.
 
-If `hasBudget=false`, no active budget — record movements still works, but daily allowance / alerts / planned items don't.
+If `hasBudget=false`, no active budget — record movements still works, but daily allowance / alerts / planned items don't. Create one with `create_budget`.
+
+## Budget lifecycle commands
+
+| Tool | Purpose |
+|---|---|
+| `create_budget({ startDate, endDate, spendingLimit, currencyCode?, state?, allowOverlap? })` | Create a new period. Refuses by default if it overlaps an existing OPEN budget. |
+| `list_budgets({ state?, startAfter?, endBefore?, includeStats?, limit? })` | History view; default returns 12 newest. `includeStats=true` attaches spent/remaining/percentUsed per budget. |
+| `update_budget({ budgetId, ...fields })` | Partial update of dates, limit, currency, state, alert flags. |
+| `activate_budget({ budgetId, closeOverlapping? })` | Set OPEN; by default closes any other OPEN budget that overlaps (and sweeps its unfulfilled PLANNEDs to SKIPPED). Use to switch periods cleanly. |
+| `close_budget({ budgetId, sweepPlanned? })` | Set CLOSED. By default also sweeps unfulfilled PLANNEDs in this budget to SKIPPED. |
+| `delete_budget({ budgetId, detachMovements? })` | Refuses if movements reference it; pass `detachMovements=true` to NULL their `budget_id` first. |
 
 ## Daily allowance
 
@@ -66,6 +77,9 @@ A PLANNED movement is intent (future expected expense), not history. Linked to b
 | "Cuánto en comida" | `budget_status.byCategory`, or `spending_by_category` for detail |
 | "Qué tengo planeado" | `list_movements` with `state=PLANNED`, date range |
 | "Cancelar Netflix" | Find recurring TEMPLATE via `list_movements state=TEMPLATE`, then `update_movement_state({ movementId, state: "VOIDED" })` to stop generating PLANNEDs without losing history |
+| "Crear el budget de mayo" | `create_budget({ startDate, endDate, spendingLimit })`, then `activate_budget({ budgetId })` if you also want to close the old one |
+| "Cerrar el mes" | `close_budget({ budgetId })` — sweeps unfulfilled PLANNEDs to SKIPPED |
+| "Cómo me fue en marzo" | `list_budgets({ includeStats: true })` to find the past one, then `budget_status({ budgetId })` for detail |
 
 ## Anti-patterns
 
